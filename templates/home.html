@@ -11,18 +11,37 @@
        height: 150px;
        object-fit:cover;
      }
+       .logo {
+           color: rgb(52, 131, 235);
+           text-align: right;
+           margin-top: 4px;
+       }
    </style>
   </head>
    
     <body>
-      <img class="img-fluid" id="umasslogo" src="https://umass-teaching-survey-1--plin765.repl.co/static/umass.jpeg">
       <div class="container">
-      
+        <div class="row">
+          <div class="col-9">
+            <img class="img-fluid" id="umasslogo" src="https://umass-teaching-survey-1--plin765.repl.co/static/umass.jpeg">
+          </div>
+          <div class="col-3">
+            <h4 style="color: rgb(52, 107, 235); text-align: right; margin-top: 30px;">UMass Boston</h4>
+            <h4 style="color: rgb(52, 107, 235); text-align: right; "> College of Management</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
       <h1 class="text-center mb-4">Closing-the-Loop(CTL) Improvements Summary Form</h1>
       <p class="lead">Please email the completed CTL form together with supporting documents to the AoL liaison from your department. Many Thanks!
       </p>
       <h3 class="mb-4">Your Contact Information:</h3>
-      
+      <div>
+        {%for job in jobs%}
+          {% include 'jobitem.html'%}
+        {%endfor%}
+      </div>
       <h3 class="mb-4">CG(s) Addressed by this Improvement:</h3>
       <h3 class="mb-4">CG(s) Assessment Information:</h3>
       <h3 class="mb-4">CG(s) Improvement Report: For EVERY activity included in the reported improvement, please report:</h3>

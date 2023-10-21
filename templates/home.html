@@ -11,12 +11,67 @@
        height: 150px;
        object-fit:cover;
      }
-       .logo {
-           color: rgb(52, 131, 235);
-           text-align: right;
-           margin-top: 4px;
-       }
+     .name-input {
+       width: 100%; /* Set the width to 100% to make it wider */
+       border: 2px solid black; 
+       padding: 5px; 
+     }
+     .email-input {
+        width: 100%; 
+        border: 2px solid black; 
+        padding: 5px; 
+      }
+     .program-input {
+       width: 100%; 
+       border: 2px solid black;
+       padding: 5px; 
+     }
+     .cg_address-select{
+        width: 100%; 
+        border: 2px solid black; 
+        padding: 5px;
+      }
+     .extra{
+       width: 100%; 
+       border: 2px solid black; 
+       padding: 5px;
+     }
+     .assessment{
+       width: 100%; 
+        border: 2px solid black; 
+        padding: 5px;
+     }
+     .sub1{
+       width: 100%; 
+        border: 2px solid black; 
+       
+     }
+     .sub2{
+        width: 100%; 
+         border: 2px solid black; 
+
+      }
+     .sub3{
+        width: 100%; 
+         border: 2px solid black; 
+
+      }
+     .upload{
+       width: 100%; 
+        border: 2px solid black;
+     }
+     .semester{
+       width: 100%; 
+        border: 2px solid black; 
+     }
+     .addition{
+        width: 100%; 
+         border: 2px solid black; 
+         padding: 5px;
+      }
+      
    </style>
+    
   </head>
    
     <body>
@@ -34,21 +89,143 @@
 
       <div class="container">
       <h1 class="text-center mb-4">Closing-the-Loop(CTL) Improvements Summary Form</h1>
+        
       <p class="lead">Please email the completed CTL form together with supporting documents to the AoL liaison from your department. Many Thanks!
       </p>
-      <h3 class="mb-4">Your Contact Information:</h3>
-      <div>
-        {%for job in jobs%}
-          {% include 'jobitem.html'%}
-        {%endfor%}
-      </div>
-      <h3 class="mb-4">CG(s) Addressed by this Improvement:</h3>
-      <h3 class="mb-4">CG(s) Assessment Information:</h3>
-      <h3 class="mb-4">CG(s) Improvement Report: For EVERY activity included in the reported improvement, please report:</h3>
-      <h3 class="mb-4">Additional Comments:</h3>
-        <div class="text-center">
-      <button class="btn btn-primary btn-lg">Submit</button>
+        
+        <h3 class="mb-4" style="background-color: black; color: white;">Your Contact Information:</h3>
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="form-group row">
+              <label for="name" class="col-sm-1 text-black">Name:</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control name-input" id="name">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="form-group row">
+              <label for="email" class="col-sm-1 ">Email:</label>
+              <div class="col-sm-9">
+                <input type="email" class="form-control email-input"  id="email">
+              </div>
+            </div>
+          </div>
         </div>
+      
+      <h3 class="mb-4" style="background-color: black; color: white;">CG(s) Addressed by this Improvement:</h3>
+              <div class="row">
+                <div class="col-md-5 mb-4">
+                  <div class="form-group row">
+                    <label for="program" class="col-sm-2 text-black">Program:</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control program-input" id="program">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label for="cg_address" class="col-sm-3 ">CG Address:</label>
+                    <div class="col-sm-9">
+                      <select class="form-control cg_address-select" id="cgAddress">
+                        <option disabled selected>Please choose one below</option>
+                        <option value="Option 1">Option 1</option>
+                        <option value="Option 2">Option 2</option>
+                        <option value="Option 3">Option 3</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 mb-4">
+                  <div class="form-group">
+                    <label for="extrainformation" class="form-label">If the improvement addresses more than 1 CG, please specify and explain:</label>
+                    <textarea class="form-control extra" id="extrainformation" rows="1"></textarea>
+                  </div>
+                </div>
+              </div>
+
+        
+      <h3 class="mb-4" style="background-color: black; color: white;">CG(s) Assessment Information:</h3>
+        <div class="row">
+          <div class="col-md-12 mb-4">
+            <div class="form-group">
+              <label for="assessment" class="form-label">Please comment on how the previous assessment results for the CGs triggered the improvement:</label>
+              <textarea class="form-control assessment" id="assessment" rows="4"></textarea>
+            </div>
+          </div>
+        </div>
+
+        
+        
+      <h3 class="mb-4" style="background-color: black; color: white;">Improvement Report: For EVERY activity included in the reported improvement, please report:</h3>
+        <div class="row">
+          <div class="col-md-12 mb-4">
+            <div class="form-group">
+              <label for="sub1" class="form-label">A brief description of the improvement activity:</label>
+              <textarea class="form-control sub1" id="sub1" rows="3"></textarea>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="row">
+          <div class="col-md-12 mb-4">
+            <div class="form-group">
+              <label for="sub2" class="form-label">Detailed Information on the activity. Alternativrly, you can attach additional documents (e.g. syllabus, assignment description, improved grading rubric, case, quiz/exam questions,  … ) if applicable and necessary:</label>
+              <textarea class="form-control sub2" id="sub2" rows="3"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group mb-3 upload">
+          <label class="input-group-text" for="inputGroupFile01">Upload</label>
+          <input type="file" class="form-control" id="inputGroupFile01" multiple>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-12 mb-4">
+            <div class="form-group">
+              <label for="sub3" class="form-label">How would this activity help to improve the addressing of the CG(s) aforementioned: </label>
+              <textarea class="form-control sub3" id="sub3" rows="3"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="semester" class="form-label">Semester when the improvement is (or will be) launched:</label>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="form-group">
+              <input type="text" class="form-control semester" id="semester">
+            </div>
+          </div>
+        </div>
+
+        
+      <h3 class="mb-4" style="background-color: black; color: white;">Additional Comments:</h3>
+        <div class="mb-5">
+        <textarea class="form-control addition" id="additionalinformation" rows="4"></textarea>
+        </div>
+        
+        
+        <div class="text-center mb-4">
+            <button class="btn btn-primary btn-lg" id="submitButton">Submit</button>
+        </div>
+
+        <script>
+            // Add an event listener to the button
+            document.getElementById('submitButton').addEventListener('click', function() {
+                // Redirect to the "/thank-you" route in Flask
+                window.location.href = '{{ url_for("thank_you") }}';
+            });
+        </script>
+        
       </div>
     </body>
    

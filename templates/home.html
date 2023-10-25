@@ -110,14 +110,19 @@
         <div class="text-center mb-3">
             <button class="btn btn-primary btn-lg" id="submitButton">Submit</button>
         </div>
+              <script>
+                    // Add an event listener to the button
+                    document.getElementById('submitButton').addEventListener('click', function() {
+                        const improvementReport = document.getElementById('sub1').value;
 
-        <script>
-            // Add an event listener to the button
-            document.getElementById('submitButton').addEventListener('click', function() {
-                // Redirect to the "/thank-you" route in Flask
-                window.location.href = '{{ url_for("thank_you") }}';
-            });
-        </script>
+                        // Count the words (assuming words are separated by spaces)
+                        const wordCount = improvementReport.split(/\s+/).filter(word => word.length > 0).length;
+
+                        // Display the word count
+                        alert('Word count: ' + wordCount);
+                    });
+                </script>
+
 
       </div>
     </body>

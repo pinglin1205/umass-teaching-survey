@@ -34,5 +34,11 @@ def first_web():
 def thank_you():
     return render_template('thank-you.html')
 
+@app.route('/word_count_result')
+def word_count_result():
+    word_count = request.args.get('count')
+    return render_template('word_count_result.html', word_count=word_count)
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)

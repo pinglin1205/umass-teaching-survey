@@ -8,16 +8,7 @@
 <body>
     <div class="container">
         <h3 class="text-center mb-4">Word Count Result</h3>
-        <p>Number of words in your input: <span id="wordCountResult"></span></p>
+        <p>Number of words in your input: <span id="wordCountResult">{{ word_count }}</span></p>
     </div>
-
-    <script>
-        // Get the word count from the query parameter
-        const urlParams = new URLSearchParams(window.location.search);
-        const wordCount = urlParams.get('count');
-
-        // Display the word count
-        document.getElementById('wordCountResult').textContent = wordCount;
-    </script>
 </body>
 </html>

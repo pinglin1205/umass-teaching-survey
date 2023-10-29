@@ -57,14 +57,14 @@
       </div>
 
       <div class="container">
-      <h3 class="text-center mb-3">Closing-the-Loop(CTL) Improvements Summary Form</h3>
+      <h3 class="text-center mb-4">Closing-the-Loop(CTL) Improvements Summary Form</h3>
 
 
-        <h4 class="mb-3" style="background-color: rgb(93, 138, 168); color: white;">Your Contact Information:</h4>
+        <h4 class="mb-4" style="background-color: rgb(93, 138, 168); color: white;">Your Contact Information:</h4>
         <div class="row">
           <div class="col-md-6 mb-4">
             <div class="form-group row">
-              <label for="name" class="col-sm-1 text-black">Name:</label>
+              <label for="name" class="col-sm-2 text-black">Name:</label>
               <div class="col-sm-9">
                 <input type="text" class="form-control name-input" id="name">
                 </div>
@@ -72,7 +72,7 @@
           </div>
           <div class="col-md-6 mb-4">
             <div class="form-group row">
-              <label for="email" class="col-sm-1 ">Email:</label>
+              <label for="email" class="col-sm-2 ">Email:</label>
               <div class="col-sm-9">
                 <input type="email" class="form-control email-input"  id="email">
               </div>
@@ -80,7 +80,7 @@
           </div>
         </div>
 
-      <h4 class="mb-3" style="background-color: rgb(93, 138, 168); color: white;">Department Information:</h4>
+      <h4 class="mb-4" style="background-color: rgb(93, 138, 168); color: white;">Department Information:</h4>
               <div class="row">
                 <div class="col-md-6 mb-4">
                   <div class="form-group row">
@@ -92,37 +92,34 @@
                 </div>
 
                 
-      <h4 class="mb-3" style="background-color: rgb(93, 138, 168); color: white;">Improvement Report: For EVERY activity included in the reported improvement, please report:</h4>
-          <div class="row">
-            <div class="col-md-12 mb-4">
-              <div class="form-group">
-                <label for="sub1" class="form-label">A brief description of the improvement activity:</label>
-                <textarea class="form-control sub1" id="sub1" rows="4"></textarea>
+     <form action="/word_count_result" method="post">
+        <div class="row">
+          <div class="col-md-12 mb-4">
+            <div class="form-group">
+              <label for="sub1" class="form-label">A brief description of the improvement activity:</label>
+               <textarea class="form-control sub1" id="sub1" name="input_text" rows="5"></textarea>
+                 </div>
               </div>
             </div>
-          </div>
-
           <div class="input-group mb-3 upload">
-              <label class="input-group-text" for="inputGroupFile01">Upload</label>
-              <input type="file" class="form-control" id="inputGroupFile01" multiple>
-            </div>
+             <label class="input-group-text" for="inputGroupFile01">Upload</label>
+             <input type="file" class="form-control" id="inputGroupFile01" multiple>
+          </div>
+          <div class="text-center mb-3">
+            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+          </div>
+    </form>
+
                 
-        <div class="text-center mb-3">
-            <button class="btn btn-primary btn-lg" id="submitButton">Submit</button>
-        </div>
-              <script>
-                    // Add an event listener to the button
-                    document.getElementById('submitButton').addEventListener('click', function() {
-                        const improvementReport = document.getElementById('sub1').value;
-
-                        // Count the words (assuming words are separated by spaces)
-                        const wordCount = improvementReport.split(/\s+/).filter(word => word.length > 0).length;
-
-                        // Display the word count
-                        alert('Word count: ' + wordCount);
-                    });
-                </script>
-
+          
+                
+        
+                
+    <h2>Ask ChatGPT:</h2>
+      <form action="/ask-chatgpt" method="post">
+         <textarea name="user_input" class="form-control sub1" rows="4"></textarea>
+          <button type="submit" class="btn btn-primary">Ask ChatGPT</button>
+      </form>
 
       </div>
     </body>

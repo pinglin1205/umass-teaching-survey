@@ -1,27 +1,8 @@
-from flask import Flask, render_template,jsonify,url_for
+from flask import Flask, render_template,jsonify,url_for,request
+import openai
 
 app = Flask(__name__)
-# JOBS=[
-#   {
-#     'id':1,
-#     'title':'Python Developer',
-#     'location':'New York',
-#     'salary':50000
-#   },
-#   {
-#     'id':2,
-#     'title':'Data Scientist',
-#     'location':'Terre Haute',
-#     'salary':60000
-#   },
-#   {
-#     'id':3,
-#     'title':'Frontend Engineer',
-#     'location':'Remote',
-#     'salary':80000
-#   }
-  
-# ]
+openai.api_key = "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"
 
 @app.route("/")
 def first_web():
@@ -34,10 +15,39 @@ def first_web():
 def thank_you():
     return render_template('thank-you.html')
 
-@app.route('/word_count_result')
+@app.route("/word_count_result", methods=["POST"])
 def word_count_result():
-    word_count = request.args.get('count')
-    return render_template('word_count_result.html', word_count=word_count)
+      input_text = request.form.get("input_text")
+
+      # Count the words (assuming words are separated by spaces)
+      word_count = len(input_text.split())
+
+      return render_template('word_count_result.html', word_count=word_count)
+
+@app.route("/ask-chatgpt", methods=["POST"])
+def ask_chatgpt():
+    user_input = request.form.get("user_input")
+
+    try:
+        # Make an API call to OpenAI
+        response = openai.Completion.create(
+            engine="davinci",  # Choose the GPT-3 engine
+            prompt=user_input,
+            max_tokens=100,  # Adjust the response length as needed
+        )
+
+        # Check if the API call was successful
+        if response.choices and response.choices[0].text:
+            chatgpt_response = response.choices[0].text
+        else:
+            chatgpt_response = "No response from the GPT-3 API."
+
+    except Exception as e:
+        # Handle API call errors
+        chatgpt_response = "Error: " + str(e)
+
+    return render_template('chatgpt_response.html', chatgpt_response=chatgpt_response)
+
 
 
 if __name__ == "__main__":
